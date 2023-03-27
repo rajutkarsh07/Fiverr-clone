@@ -1,7 +1,7 @@
 {
-  "name": "natours",
+  "name": "fiverr",
   "version": "1.0.0",
-  "description": "learning node, express and mongoDB",
+  "description": "Fiverr backend api",
   "main": "app.js",
   "scripts": {
     "start": "nodemon server.js"
