@@ -1,0 +1,10 @@
+export { default as Navbar } from ".//Navbar/Navbar";
+export { default as Footer } from "./Footer/Footer";
+export { default as facebook } from "./img/facebook.png";
+export { default as linkedin } from "./img/linkedin.png";
+export { default as pinterest } from "./img/pinterest.png";
+export { default as twitter } from "./img/twitter.png";
+export { default as instagram } from "./img/instagram.png";
+export { default as language } from "./img/language.png";
+export { default as coin } from "./img/coin.png";
+export { default as accessibility } from "./img/accessibility.png";

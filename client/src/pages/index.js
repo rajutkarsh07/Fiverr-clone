@@ -1,2 +1,11 @@
 export { default as Home } from "./Home/Home";
+export { default as Add } from "./Add/Add";
+export { default as Gig } from "./Gig/Gig";
+export { default as Gigs } from "./Gigs/Gigs";
+export { default as Login } from "./Login/Login";
+export { default as Message } from "./Message/Message";
+export { default as Messages } from "./Messages/Messages";
+export { default as MyGigs } from "./MyGigs/MyGigs";
+export { default as Orders } from "./Orders/Orders";
+export { default as Register } from "./Register/Register";
 export { default as Error } from "./Error/Error";
