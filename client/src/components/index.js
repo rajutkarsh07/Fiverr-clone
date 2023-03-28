@@ -1,10 +1,10 @@
-export { default as Navbar } from ".//Navbar/Navbar";
+export { default as Navbar } from "./Navbar/Navbar";
+export { default as Featured } from "./Featured/Featured";
+export { default as TrustedBy } from "./TrustedBy/TrustedBy";
+export { default as Slide } from "./Slide/Slide";
+export { default as SlideProjects } from "./SlideProjects/SlideProjects";
 export { default as Footer } from "./Footer/Footer";
-export { default as facebook } from "./img/facebook.png";
-export { default as linkedin } from "./img/linkedin.png";
-export { default as pinterest } from "./img/pinterest.png";
-export { default as twitter } from "./img/twitter.png";
-export { default as instagram } from "./img/instagram.png";
-export { default as language } from "./img/language.png";
-export { default as coin } from "./img/coin.png";
-export { default as accessibility } from "./img/accessibility.png";
+
+//images
+export { default as search } from "./img/search.png";
+export { default as girl } from "./img/beautiful-girl.png";

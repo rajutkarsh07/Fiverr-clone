@@ -1,17 +1,6 @@
 import React from "react";
 import "./Footer.scss";
 
-import {
-  facebook,
-  linkedin,
-  pinterest,
-  twitter,
-  instagram,
-  language,
-  coin,
-  accessibility,
-} from "../index";
-
 function Footer() {
   return (
     <div className="footer">
@@ -84,21 +73,21 @@ function Footer() {
           </div>
           <div className="right">
             <div className="social">
-              <img src={twitter} alt="" />
-              <img src={facebook} alt="" />
-              <img src={linkedin} alt="" />
-              <img src={pinterest} alt="" />
-              <img src={instagram} alt="" />
+              <img src="/img/twitter.png" alt="" />
+              <img src="/img/facebook.png" alt="" />
+              <img src="/img/linkedin.png" alt="" />
+              <img src="/img/pinterest.png" alt="" />
+              <img src="/img/instagram.png" alt="" />
             </div>
             <div className="link">
-              <img src={language} alt="" />
+              <img src="/img/language.png" alt="" />
               <span>English</span>
             </div>
             <div className="link">
-              <img src={coin} alt="" />
+              <img src="/img/coin.png" alt="" />
               <span>USD</span>
             </div>
-            <img src={accessibility} alt="" />
+            <img src="/img/accessibility.png" alt="" />
           </div>
         </div>
       </div>

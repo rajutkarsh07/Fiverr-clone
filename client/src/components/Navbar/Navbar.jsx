@@ -20,6 +20,7 @@ function Navbar() {
   }, []);
 
   const currentUser = true;
+  // const currentUser.isSeller = true;
 
   const handleLogout = async () => {
     console.log("logut button clicked");

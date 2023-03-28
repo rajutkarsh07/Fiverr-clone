@@ -5,6 +5,12 @@
   font-family: "Roboto", sans-serif;
 }
 
+html {
+  --scrollbarBG: #cfd8dc;
+  /* --thumbBG: #272d3d; */
+  --thumbBG: #1dbf73;
+}
+
 body::-webkit-scrollbar {
   width: 11px;
 }
