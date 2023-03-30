@@ -16,8 +16,8 @@ const Slide = () => {
             return (
               <Link to="/" key={cards.id}>
                 <div className="categoryCard">
-                  <h2>hello</h2>
                   <img src={cards.img} alt="" />
+                  <div className="gradient-overlay"></div>
                   <span className="desc">{cards.desc}</span>
                   <span className="title">{cards.title}</span>
                 </div>

@@ -13,9 +13,6 @@ const SlideProjects = () => {
       <Carousel responsive={responsive} className="carousel">
         {projects.map((projects) => {
           {
-            {
-              /* console.log(cards); */
-            }
             return (
               <div className="SlideProjects">
                 <img src={projects.img} alt="" />

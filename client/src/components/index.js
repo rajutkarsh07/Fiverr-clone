@@ -3,6 +3,7 @@ export { default as Featured } from "./Featured/Featured";
 export { default as TrustedBy } from "./TrustedBy/TrustedBy";
 export { default as Slide } from "./Slide/Slide";
 export { default as SlideProjects } from "./SlideProjects/SlideProjects";
+export { default as GigCard } from "./GigCard/GigCard";
 export { default as Footer } from "./Footer/Footer";
 
 //images
