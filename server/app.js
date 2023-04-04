@@ -8,6 +8,7 @@ const hpp = require('hpp');
 const AppError = require('./utils/appError');
 
 const userRouter = require('./routes/userRoutes');
+
 const app = express();
 app.use(helmet());
 
@@ -26,7 +27,6 @@ app.use(mongoSanitize());
 // Data sanitization against XSS
 app.use(xss());
 
-
 app.use((req, res, next) => {
   req.requestTIme = new Date().toISOString();
   console.log(req.headers);
@@ -39,6 +39,6 @@ app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
 });
 
-app.use(globalErrorHandler);
+// app.use(globalErrorHandler);
 
 module.exports = app;

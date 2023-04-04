@@ -4,7 +4,6 @@ import "./Navbar.scss";
 
 function Navbar() {
   const [active, setActive] = useState(false);
-  const [isSeller, setIsseller] = useState(true);
   const [open, setOpen] = useState(false);
 
   const { pathname } = useLocation();

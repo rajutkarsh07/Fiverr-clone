@@ -1,7 +1,7 @@
-export const signup = () => {
-  console.log("this is signup")
-}
+exports.signup = () => {
+  console.log('this is signup');
+};
 
-export const login = () => {
-  console.log("this is login")
-}
+exports.login = () => {
+  console.log('this is login');
+};
