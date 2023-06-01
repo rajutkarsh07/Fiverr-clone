@@ -8,6 +8,12 @@ const hpp = require('hpp');
 const AppError = require('./utils/appError');
 
 const userRouter = require('./routes/userRoutes');
+const conversationRouter = require('./routes/conversationRoutes');
+const gigRouter = require('./routes/gigRoutes');
+const messageRouter = require('./routes/messageRoutes');
+const orderRouter = require('./routes/orderRoutes');
+const reviewRouter = require('./routes/reviewRoutes');
+const authRouter = require('./routes/authRoutes');
 
 const app = express();
 app.use(helmet());
@@ -33,7 +39,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/api/v1/users', userRouter);
+app.use('/api/users', userRouter);
+app.use('/api/conversation', conversationRouter);
+app.use('/api/gig', gigRouter);
+app.use('/api/message', messageRouter);
+app.use('/api/order', orderRouter);
+app.use('/api/review', reviewRouter);
+app.use('/api/auth', authRouter);
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
