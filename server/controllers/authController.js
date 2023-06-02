@@ -1,18 +1,17 @@
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('./../utils/appError');
 const User = require('./../models/userModel');
+const bcrypt = require('bcrypt');
 
 exports.signup = catchAsync(async (req, res, next) => {
+  const hash = bcrypt.hashSync(req.body.password, 5);
   const newUser = new User({
-    username: 'utk',
-    email: 'utk@gmail.com',
-    password: '12345678',
-    country: 'India',
+    ...req.body,
+    password: hash,
   });
 
   await newUser.save();
-
-  return next(new AppError('new user has been created', 500));
+  res.status(201).send('user created');
 });
 
 exports.login = catchAsync(async (req, res, next) => {
