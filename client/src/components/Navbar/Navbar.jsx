@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.scss";
+import request from "../../utils/request";
 
 function Navbar() {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
 
   const { pathname } = useLocation();
+  const Navigate = useNavigate();
 
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
@@ -19,11 +21,18 @@ function Navbar() {
     };
   }, []);
 
-  const currentUser = true;
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
   // const currentUser.isSeller = true;
 
-  const handleLogout = async () => {
-    console.log("logut button clicked");
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    try {
+      await request.get("/auth/logout");
+      localStorage.setItem("currentUser", null);
+      Navigate("/login");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

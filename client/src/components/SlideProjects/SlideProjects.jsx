@@ -14,7 +14,7 @@ const SlideProjects = () => {
         {projects.map((projects) => {
           {
             return (
-              <div className="SlideProjects">
+              <div key={projects.id} className="SlideProjects">
                 <img src={projects.img} alt="" />
                 <div className="info">
                   <img src={projects.pp} alt="" />

@@ -7,6 +7,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
+const cors = require('cors');
 
 const userRouter = require('./routes/userRoutes');
 // const conversationRouter = require('./routes/conversationRoutes');
@@ -43,6 +44,13 @@ app.use((req, res, next) => {
   console.log(req.headers);
   next();
 });
+
+const corsOptions = {
+  origin: ['http://localhost:5173', 'http://127.0.0.1:5173'],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.use('/api/users', userRouter);
 // app.use('/api/conversation', conversationRouter);

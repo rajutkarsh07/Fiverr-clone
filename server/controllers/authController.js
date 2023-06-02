@@ -19,10 +19,9 @@ exports.signup = catchAsync(async (req, res, next) => {
 });
 
 exports.login = catchAsync(async (req, res, next) => {
-  // console.log('this is login');
   const user = await User.findOne({ username: req.body.username });
   if (!user) {
-    return next(new AppError(404, 'User not exist'));
+    return next(new AppError('User not exist', 404));
   }
 
   const isCorrect = bcrypt.compareSync(req.body.password, user.password);
@@ -35,7 +34,7 @@ exports.login = catchAsync(async (req, res, next) => {
   );
 
   if (!isCorrect) {
-    return next(new AppError(400, 'Wrong password or username'));
+    return next(new AppError('Wrong password or username', 400));
   }
 
   const { password, ...info } = user._doc;
@@ -48,7 +47,6 @@ exports.login = catchAsync(async (req, res, next) => {
 });
 
 exports.logout = catchAsync(async (req, res, next) => {
-  // console.log('this is logout');
   res.clearCookie('accessToken', {
     sameSite: 'none',
     secure: true,
