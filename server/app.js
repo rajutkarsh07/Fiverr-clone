@@ -11,10 +11,11 @@ const cors = require('cors');
 
 const userRouter = require('./routes/userRoutes');
 // const conversationRouter = require('./routes/conversationRoutes');
-// const gigRouter = require('./routes/gigRoutes');
+const gigRouter = require('./routes/gigRoutes');
 // const messageRouter = require('./routes/messageRoutes');
 // const orderRouter = require('./routes/orderRoutes');
 // const reviewRouter = require('./routes/reviewRoutes');
+
 const authRouter = require('./routes/authRoutes');
 const cookieParser = require('cookie-parser');
 
@@ -54,7 +55,7 @@ app.use(cors(corsOptions));
 
 app.use('/api/users', userRouter);
 // app.use('/api/conversation', conversationRouter);
-// app.use('/api/gig', gigRouter);
+app.use('/api/gigs', gigRouter);
 // app.use('/api/message', messageRouter);
 // app.use('/api/order', orderRouter);
 // app.use('/api/review', reviewRouter);
