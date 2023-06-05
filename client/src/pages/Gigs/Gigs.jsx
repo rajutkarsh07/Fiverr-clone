@@ -1,23 +1,66 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Gigs.scss";
 import GigCard from "../../components/gigCard/GigCard";
-import { gigs } from "../../data";
+import { useQuery } from "@tanstack/react-query";
+import request from "../../utils/request";
+import { useLocation } from "react-router-dom";
 
-/* eslint-disable */
+const fetchGigs = async (search, min, max, sort) => {
+  const response = await request.get(
+    `gigs?${search}&min=${min}&max=${max}&sort=${sort}`
+  );
+  return response.data;
+};
 
 const Gigs = () => {
   const [sort, setSort] = useState("sales");
   const [open, setOpen] = useState(false);
+  const [gigs, setGigs] = useState([]);
   const minRef = useRef();
   const maxRef = useRef();
 
+  const location = useLocation();
+  // console.log(location);
+
+  const { isLoading, error, refetch } = useQuery(
+    ["gigData"],
+    () =>
+      fetchGigs(
+        location.search,
+        minRef.current.value,
+        maxRef.current.value,
+        sort
+      ),
+    {
+      onSuccess: (data) => {
+        setGigs(data.gigs);
+      },
+    }
+  );
+
+  // console.log(gigs);
+
   const reSort = (value) => {
     setSort(value);
+    setOpen(false);
   };
 
+  useEffect(() => {
+    refetch();
+  }, [sort]);
+
   const apply = () => {
-    console.log("apply button clicked");
+    // console.log("apply button clicked");
+    refetch();
   };
+
+  // if (isLoading || isFetching) {
+  //   return <h3>Loading...</h3>;
+  // }
+
+  // if (isError) {
+  //   return <h3>{error.message}</h3>;
+  // }
 
   return (
     <div className="gigs">
@@ -25,7 +68,9 @@ const Gigs = () => {
         <span className="breadcrumbs">{"Fiverr > Graphics & Design >"}</span>
         <h1>AI Artists</h1>
         <p>
-          Explore the boundaries of art and technology with Liverr's AI artists
+          {
+            "Explore the boundaries of art and technology with Fiverr's AI artists"
+          }
         </p>
         <div className="menu">
           <div className="left">
@@ -53,9 +98,11 @@ const Gigs = () => {
           </div>
         </div>
         <div className="cards">
-          {gigs.map((gig) => (
-            <GigCard key={gig._id} item={gig} />
-          ))}
+          {isLoading
+            ? "loading"
+            : error
+            ? error.message
+            : gigs.map((gig) => <GigCard key={gig._id} item={gig} />)}
         </div>
       </div>
     </div>

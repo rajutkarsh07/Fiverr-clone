@@ -4,9 +4,9 @@ const { verifyToken } = require('../middleware/token');
 
 const router = express.Router();
 
-router.get('/', verifyToken, gigController.getGigs);
+router.get('/', gigController.getGigs);
+router.get('/single/:id', gigController.getGig);
 router.post('/', verifyToken, gigController.createGig);
-router.get('/single/:id', verifyToken, gigController.getGig);
 router.delete('/:id', verifyToken, gigController.deleteGig);
 
 module.exports = router;
