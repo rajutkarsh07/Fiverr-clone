@@ -26,7 +26,7 @@ app.use(cookieParser());
 app.use(helmet());
 
 const limiter = rateLimit({
-  max: 100,
+  max: 1000,
   windowMs: 60 * 60 * 1000, // means 100 request per hour
   message: 'To many request from this IP, try again after an hour',
 });
